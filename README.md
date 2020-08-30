@@ -4,11 +4,12 @@ This project is build with React as the client side, NodeJs as the server, and M
 
 ## To start the app
 
-Add your mongoDB server
->mongoose.connect(
-	// "mongodb server",
-	{ useNewUrlParser:  true, useUnifiedTopology:  true }
-	)
+Setup your db
 
-To start the app, use 
+> add .env file in root folder
+> DB_URL="link to your db"
+
+To start the app, use at server
+
+> cd server
 > npm run app
