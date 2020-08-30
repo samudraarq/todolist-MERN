@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     filterHandler();
-    saveLocalTodos();
+    // saveLocalTodos();
   }, [status, todos]);
 
   const filterHandler = () => {
@@ -35,19 +35,19 @@ function App() {
   };
 
   //save to local storage
-  const saveLocalTodos = () => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  };
+  // const saveLocalTodos = () => {
+  //   localStorage.setItem("todos", JSON.stringify(todos));
+  // };
 
   //get from local storage
-  const getLocalTodos = () => {
-    if (localStorage.getItem("todos" === null)) {
-      localStorage.setItem("todos", JSON.stringify([]));
-    } else {
-      let todosLocal = JSON.parse(localStorage.getItem("todos"));
-      setTodos(todosLocal);
-    }
-  };
+  // const getLocalTodos = () => {
+  //   if (localStorage.getItem("todos" === null)) {
+  //     localStorage.setItem("todos", JSON.stringify([]));
+  //   } else {
+  //     let todosLocal = JSON.parse(localStorage.getItem("todos"));
+  //     setTodos(todosLocal);
+  //   }
+  // };
 
   return (
     <div className="App">
