@@ -10,6 +10,16 @@ const Todo = ({ todo, setTodos, todos }) => {
   };
 
   const completeHandler = () => {
+    if (todo.completed === false) {
+      Axios.patch(`/todo/completed/${todo._id}`).then(() => {
+        console.log("todo complete");
+      });
+    } else {
+      Axios.patch(`/todo/incompleted/${todo._id}`).then(() => {
+        console.log("todo incomplete");
+      });
+    }
+
     const newTodos = todos.map((item) => {
       if (item._id === todo._id) {
         return {
