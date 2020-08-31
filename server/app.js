@@ -39,16 +39,11 @@ app.delete("/todos/:id", (req, res) => {
   Todo.findByIdAndDelete(req.params.id).then(() => res.json({ remove: true }));
 });
 
-app.patch("/todo/completed/:id", (req, res) => {
-  Todo.updateOne({ _id: req.params.id }, { completed: true }).then(() =>
-    res.json({ update: true })
-  );
-});
-
-app.patch("/todo/incompleted/:id", (req, res) => {
-  Todo.updateOne({ _id: req.params.id }, { completed: false }).then(() =>
-    res.json({ update: true })
-  );
+app.patch("/todo/status/:id", (req, res) => {
+  Todo.updateOne(
+    { _id: req.params.id },
+    { completed: req.body.status }
+  ).then(() => res.json({ update: true }));
 });
 
 app.listen(5000, () => {

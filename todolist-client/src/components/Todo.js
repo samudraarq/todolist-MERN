@@ -10,15 +10,13 @@ const Todo = ({ todo, setTodos, todos }) => {
   };
 
   const completeHandler = () => {
-    if (todo.completed === false) {
-      Axios.patch(`/todo/completed/${todo._id}`).then(() => {
-        console.log("todo complete");
-      });
-    } else {
-      Axios.patch(`/todo/incompleted/${todo._id}`).then(() => {
-        console.log("todo incomplete");
-      });
-    }
+    let completedStatus = !todo.completed;
+    console.log(completedStatus);
+    Axios.patch(`/todo/status/${todo._id}`, { status: completedStatus }).then(
+      () => {
+        console.log("status changed");
+      }
+    );
 
     const newTodos = todos.map((item) => {
       if (item._id === todo._id) {
